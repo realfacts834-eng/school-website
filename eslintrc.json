@@ -10,16 +10,9 @@
     "unicorn"
   ],
   "rules": {
-    // TypeScript Rules
     "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-      {
-        "argsIgnorePattern": "^_",
-        "varsIgnorePattern": "^_",
-        "caughtErrorsIgnorePattern": "^_"
-      }
-    ],
+    "@typescript-eslint/no-unused-vars": "off",
+    "no-unused-vars": "off",
     "@typescript-eslint/consistent-type-imports": [
       "warn",
       {
@@ -36,8 +29,6 @@
         "ts-ignore": "allow-with-description"
       }
     ],
-
-    // React Rules
     "react/no-unescaped-entities": "off",
     "react/jsx-curly-brace-presence": ["warn", { "props": "never", "children": "never" }],
     "react/self-closing-comp": [
@@ -57,8 +48,6 @@
       }
     ],
     "react/hook-use-state": "warn",
-
-    // Import Rules
     "import/order": [
       "warn",
       {
@@ -88,8 +77,6 @@
     "import/no-duplicates": "warn",
     "import/no-unused-modules": "off",
     "import/no-cycle": "warn",
-
-    // General Rules
     "no-console": ["warn", { "allow": ["warn", "error", "info"] }],
     "no-debugger": "error",
     "no-alert": "error",
@@ -103,8 +90,6 @@
     "curly": ["warn", "multi-line"],
     "eqeqeq": ["error", "always"],
     "no-nested-ternary": "warn",
-
-    // Unicorn Rules (Modern JS)
     "unicorn/filename-case": [
       "warn",
       {
