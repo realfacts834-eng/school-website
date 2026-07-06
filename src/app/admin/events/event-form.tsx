@@ -93,15 +93,15 @@ export function EventForm({ initialData }: EventFormProps = {}) {
       });
 
       if (res.ok) {
-        toast.success(isEditing ? "Event updated!" : "Event created!");
+        toast.showToast(isEditing ? "Event updated!" : "Event created!");
         router.push("/admin/events");
         router.refresh();
       } else {
         const error = await res.json();
-        toast.error(error.message || "Failed to save event");
+        toast.showToast(error.message || "Failed to save event");
       }
     } catch {
-      toast.error("Network error. Please try again.");
+      toast.showToast("Network error. Please try again.");
     } finally {
       setLoading(false);
     }

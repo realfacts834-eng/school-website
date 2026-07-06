@@ -90,14 +90,14 @@ export function SettingsForm({ settings }: SettingsFormProps) {
       });
 
       if (res.ok) {
-        toast.success("Settings saved successfully!");
+        toast.showToast("Settings saved successfully!");
         router.refresh();
       } else {
         const error = await res.json();
-        toast.error(error.message || "Failed to save settings");
+        toast.showToast(error.message || "Failed to save settings");
       }
     } catch {
-      toast.error("Network error. Please try again.");
+      toast.showToast("Network error. Please try again.");
     } finally {
       setLoading(false);
     }

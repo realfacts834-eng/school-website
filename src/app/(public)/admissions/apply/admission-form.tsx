@@ -31,7 +31,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export function AdmissionForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const { toast } = useToast();
+  const toast = useToast();
 
   const {
     register,
@@ -55,17 +55,17 @@ export function AdmissionForm() {
       const result = await res.json();
 
       if (res.ok) {
-        toast.success("Application submitted successfully!");
+        toast.showToast("Application submitted successfully!");
         reset();
         setSuccess(true);
         setTimeout(() => setSuccess(false), 8000);
         // Scroll to top
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
-        toast.error(result.message || "Failed to submit. Please try again.");
+        toast.showToast(result.message || "Failed to submit. Please try again.");
       }
     } catch {
-      toast.error("Network error. Please check your connection.");
+      toast.showToast("Network error. Please check your connection.");
     } finally {
       setLoading(false);
     }

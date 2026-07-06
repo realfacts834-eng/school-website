@@ -23,14 +23,14 @@ export function DeleteEventButton({ id, title }: DeleteEventButtonProps) {
     try {
       const res = await fetch(`/api/events/${id}`, { method: "DELETE" });
       if (res.ok) {
-        toast.success("Event deleted successfully!");
+        toast.showToast("Event deleted successfully!");
         router.refresh();
       } else {
         const error = await res.json();
-        toast.error(error.message || "Failed to delete event");
+        toast.showToast(error.message || "Failed to delete event");
       }
     } catch {
-      toast.error("Network error. Please check your connection.");
+      toast.showToast("Network error. Please check your connection.");
     } finally {
       setLoading(false);
       setOpen(false);

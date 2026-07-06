@@ -52,14 +52,14 @@ export function AdmissionActions({
           pending: "Application moved back to pending",
           waitlist: "Added to waitlist",
         };
-        toast.success(messages[newStatus] || `Status updated to ${newStatus}`);
+        toast.showToast(messages[newStatus] || `Status updated to ${newStatus}`);
         router.refresh();
       } else {
         const error = await res.json();
-        toast.error(error.message || "Failed to update status");
+        toast.showToast(error.message || "Failed to update status");
       }
     } catch {
-      toast.error("Network error. Please try again.");
+      toast.showToast("Network error. Please try again.");
     } finally {
       setLoading(null);
     }

@@ -23,13 +23,13 @@ export function DeleteBlogButton({ id, title }: DeleteBlogButtonProps) {
     try {
       const res = await fetch(`/api/blog/${id}`, { method: "DELETE" });
       if (res.ok) {
-        toast.success("Blog post deleted!");
+        toast.showToast("Blog post deleted!");
         router.refresh();
       } else {
-        toast.error("Failed to delete blog post");
+        toast.showToast("Failed to delete blog post");
       }
     } catch {
-      toast.error("Network error");
+      toast.showToast("Network error");
     } finally {
       setLoading(false);
       setOpen(false);

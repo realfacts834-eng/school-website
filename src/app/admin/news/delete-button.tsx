@@ -30,14 +30,14 @@ export function DeleteNewsButton({ id, title }: DeleteNewsButtonProps) {
       const res = await fetch(`/api/news/${id}`, { method: "DELETE" });
 
       if (res.ok) {
-        toast.success("News deleted successfully!");
+        toast.showToast("News deleted successfully!");
         router.refresh();
       } else {
         const error = await res.json();
-        toast.error(error.message || "Failed to delete news");
+        toast.showToast(error.message || "Failed to delete news");
       }
     } catch {
-      toast.error("Network error. Please check your connection.");
+      toast.showToast("Network error. Please check your connection.");
     } finally {
       setLoading(false);
       setOpen(false);

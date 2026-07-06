@@ -40,16 +40,16 @@ export function ContactForm() {
       });
 
       if (res.ok) {
-        toast.success("Message sent successfully! We'll get back to you soon.");
+        toast.showToast("Message sent successfully! We'll get back to you soon.");
         reset();
         setSuccess(true);
         setTimeout(() => setSuccess(false), 5000);
       } else {
         const error = await res.json();
-        toast.error(error.message || "Failed to send message. Please try again.");
+        toast.showToast(error.message || "Failed to send message. Please try again.");
       }
     } catch {
-      toast.error("Network error. Please check your connection and try again.");
+      toast.showToast("Network error. Please check your connection and try again.");
     } finally {
       setLoading(false);
     }

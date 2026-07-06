@@ -157,7 +157,7 @@ export function useToast() {
   // Success from loading
   const resolveToast = useCallback(
     (id: string, message: string, options?: ToastOptions) => {
-      toast.success(message, { id, ...options });
+      toast.showToast(message, { id, ...options });
     },
     []
   );
@@ -165,7 +165,7 @@ export function useToast() {
   // Error from loading
   const rejectToast = useCallback(
     (id: string, message: string, options?: ToastOptions) => {
-      toast.error(message, { id, ...options });
+      toast.showToast(message, { id, ...options });
     },
     []
   );

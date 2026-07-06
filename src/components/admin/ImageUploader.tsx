@@ -83,7 +83,7 @@ export function ImageUploader({
         }
 
         setUploadState({ status: "error", progress: 0, message });
-        toast.error(message);
+        toast.showToast(message);
         return;
       }
 
@@ -143,7 +143,7 @@ export function ImageUploader({
             message: "Upload complete!",
           });
           onUpload(data.url);
-          toast.success("Image uploaded successfully");
+          toast.showToast("Image uploaded successfully");
 
           // Reset success message after delay
           setTimeout(() => {
@@ -161,7 +161,7 @@ export function ImageUploader({
           progress: 0,
           message: "Upload failed. Please try again.",
         });
-        toast.error("Upload failed. Please try again.");
+        toast.showToast("Upload failed. Please try again.");
       }
     },
     [onUpload, maxSize]

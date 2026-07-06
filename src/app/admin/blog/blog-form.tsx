@@ -64,14 +64,14 @@ export function BlogForm({ initialData }: BlogFormProps = {}) {
       });
 
       if (res.ok) {
-        toast.success(isEditing ? "Blog post updated!" : "Blog post created!");
+        toast.showToast(isEditing ? "Blog post updated!" : "Blog post created!");
         router.push("/admin/blog");
         router.refresh();
       } else {
-        toast.error("Failed to save blog post");
+        toast.showToast("Failed to save blog post");
       }
     } catch {
-      toast.error("Network error");
+      toast.showToast("Network error");
     } finally {
       setLoading(false);
     }

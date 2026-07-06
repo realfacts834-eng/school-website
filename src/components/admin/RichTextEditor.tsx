@@ -123,7 +123,7 @@ export function RichTextEditor({
     const url = window.prompt("Enter image URL:");
     if (url && editor) {
       editor.chain().focus().setImage({ src: url, alt: "Image" }).run();
-      toast.success("Image added");
+      toast.showToast("Image added");
     }
   }, [editor]);
 

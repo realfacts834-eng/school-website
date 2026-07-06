@@ -90,15 +90,15 @@ export function NewsForm({ initialData }: NewsFormProps = {}) {
       });
 
       if (res.ok) {
-        toast.success(isEditing ? "News updated successfully!" : "News created successfully!");
+        toast.showToast(isEditing ? "News updated successfully!" : "News created successfully!");
         router.push("/admin/news");
         router.refresh();
       } else {
         const error = await res.json();
-        toast.error(error.message || "Failed to save news");
+        toast.showToast(error.message || "Failed to save news");
       }
     } catch {
-      toast.error("Network error. Please try again.");
+      toast.showToast("Network error. Please try again.");
     } finally {
       setLoading(false);
     }
