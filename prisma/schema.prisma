@@ -92,7 +92,7 @@ model VerificationToken {
   token      String   @unique
   expires    DateTime
 
-  @@id([identifier, token]) // NextAuth v5 کے لیے بالکل پرفیکٹ کمپاؤنڈ آئی ڈی
+  @@id([identifier, token])
 }
 
 // ==========================================
@@ -164,7 +164,7 @@ model Gallery {
   coverImage  String?
   isPublished Boolean        @default(false)
   images      GalleryImage[]
-  createdAt   DateTime       @now()
+  createdAt   DateTime       @default(now()) // یہاں فکس کر دیا ہے!
   updatedAt   DateTime       @updatedAt
 }
 
