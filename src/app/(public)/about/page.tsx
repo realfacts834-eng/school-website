@@ -13,7 +13,6 @@ import {
   Heart,
   Award,
   ArrowRight,
-  GraduationCap,
   Users,
   Calendar,
   Star,
