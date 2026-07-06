@@ -55,7 +55,7 @@ export function AdmissionForm() {
       const result = await res.json();
 
       if (res.ok) {
-        toast.showToast("Application submitted successfully!");
+        showToast("Application submitted successfully!");
         reset();
         setSuccess(true);
         setTimeout(() => setSuccess(false), 8000);
